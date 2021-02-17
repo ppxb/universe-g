@@ -1,10 +1,13 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { PageProps } from 'gatsby'
+import Layout from '../components/layout'
 
-const IndexPage: React.FC<{}> = () => {
-  return <div>Hello world!
-    <Link to="/home">this is a url to home</Link>
-  </div>
+const IndexPage: React.FC<PageProps> = ({ path }) => {
+  return (
+    <Layout>
+      <div>你好，世界。当前URL：{ path }</div>
+    </Layout>
+  )
 }
 
 export default IndexPage
