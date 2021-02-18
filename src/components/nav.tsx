@@ -1,8 +1,18 @@
 import React from 'react'
 import { Link } from 'gatsby'
 // styled components
-import { Logo, Menu, NavContainer, NavWrapper } from '../styles/nav'
+import { Logo, Menu, NavContainer, NavWrapper, Search, WatchList } from '../styles/nav'
 import { Flex } from '../styles/global'
+import { Avatar, AvatarContent } from '../styles/common'
+// icons
+import { RiSearchLine } from 'react-icons/ri'
+
+const links = [
+  { name: 'series', path: '/series' },
+  { name: 'ova', path: '/ova' },
+  { name: 'mv', path: '/mv' },
+  { name: 'news', path: '/news' }
+]
 
 const Nav: React.FC = () => {
   return (
@@ -19,17 +29,20 @@ const Nav: React.FC = () => {
             <Link to='/'>universe.</Link>
           </Logo>
           <Menu>
-            <Link to='/series'>series</Link>
-            <Link to='/ova'>ova</Link>
-            <Link to='/mv'>mv</Link>
-            <Link to='/other'>· · ·</Link>
+            { links.map(link => <Link to={ link.path }>{ link.name }</Link>) }
           </Menu>
-          {/*<Search />*/ }
+          <Search whileHover={ { width: 320, cursor: 'pointer' } }
+                  transition={ { duration: .3, ease: [ .6, .05, -.01, .9 ] } }>
+            <RiSearchLine />
+          </Search>
         </Flex>
         <Flex>
-          123
-          {/*<Notification />*/ }
-          {/*<Avatar />*/ }
+          <WatchList>watch list</WatchList>
+          <Avatar>
+            <AvatarContent>
+              <img src="https://vuesax.com/avatars/avatar-1.png" alt="" />
+            </AvatarContent>
+          </Avatar>
         </Flex>
       </NavContainer>
     </NavWrapper>

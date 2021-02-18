@@ -4,11 +4,11 @@ import Layout from '../components/layout'
 
 const style = {
   width: '100%',
-  height: '200vh',
+  height: '100vh',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  backgroundImage: `url('${ require('../assets/images/guimie.jpg') }')`
+  backgroundImage: `url('${ require('../assets/images/jinji.jpg') }')`
 }
 
 const IndexPage: React.FC<PageProps> = ({ path }) => {
