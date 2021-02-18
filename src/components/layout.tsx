@@ -5,6 +5,8 @@ import { useStoreState } from '../store'
 // styled components
 import { ThemeProvider } from 'styled-components'
 import { darkTheme, GlobalStyles, lightTheme } from '../styles/global'
+// components
+import Nav from '../components/nav'
 
 const Layout: React.FC = ({ children }) => {
   const { theme } = useStoreState()
@@ -12,6 +14,7 @@ const Layout: React.FC = ({ children }) => {
   return (
     <ThemeProvider theme={ theme === 'dark' ? darkTheme : lightTheme }>
       <GlobalStyles />
+      <Nav />
       <main>{ children }</main>
     </ThemeProvider>
 
