@@ -32,7 +32,7 @@ const Nav: React.FC = () => {
             { links.map(link => <Link to={ link.path } key={ link.name }>{ link.name }</Link>) }
           </Menu>
           <Search
-            whileHover={ { width: 320, cursor: 'pointer' } }
+            whileHover={ { width: 300, cursor: 'pointer' } }
             transition={ { duration: .3, ease: [ .6, .05, -.01, .9 ] } }
           >
             <RiSearchLine />

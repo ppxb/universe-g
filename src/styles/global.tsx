@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
   ${ normalize }
 
   @import url('https://fonts.font.im/css?family=Oswald:400,500,700');
+
   * {
     text-decoration: none;
     font-family: 'Oswald', -apple-system;
