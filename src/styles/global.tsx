@@ -8,18 +8,19 @@ interface FlexProps {
 export const GlobalStyles = createGlobalStyle`
   ${ normalize }
 
-  @import url('https://fonts.font.im/css?family=Modern+Antiqua');
+  @import url('https://fonts.font.im/css?family=Oswald:400,500,700');
   * {
     text-decoration: none;
-    font-family: 'Modern Antiqua';
+    font-family: 'Oswald', -apple-system;
     outline: none;
     user-select: none;
     box-sizing: border-box !important;
+    text-transform: uppercase;
   }
 
   html {
-    -webkit-font-smoothing: antialiased;
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
   }
 
   a {
@@ -32,6 +33,7 @@ export const Flex = styled.div<FlexProps>`
   display: flex;
   align-items: center;
   height: 100%;
+
   ${ props => props.spaceBetween && css`
     justify-content: space-between;
   ` }

@@ -20,10 +20,10 @@ const Nav: React.FC = () => {
       initial={ { y: -100, opacity: 0 } }
       animate={ { y: 0, opacity: 1 } }
       transition={ {
-        duration: 0.6,
+        duration: 1,
         ease: [ .6, .05, -.01, .9 ]
       } }>
-      <NavContainer spaceBetween>
+      <NavContainer>
         <Flex>
           <Logo>
             <Link to='/'>universe.</Link>

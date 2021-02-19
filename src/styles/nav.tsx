@@ -1,9 +1,5 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import { motion } from 'framer-motion'
-
-interface ContainerProps {
-  spaceBetween?: boolean
-}
 
 export const NavWrapper = styled(motion.div)`
   width: 100%;
@@ -12,45 +8,47 @@ export const NavWrapper = styled(motion.div)`
   background: transparent;
   right: 0;
   left: 0;
-  z-index: 99;
+  z-index: 999;
 `
 
-export const NavContainer = styled.div<ContainerProps>`
+export const NavContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 100%;
   position: relative;
   padding: 0 72px;
-
-  ${ props => props.spaceBetween && css`
-    justify-content: space-between;
-  ` }
 `
 
 export const Logo = styled.div`
   a {
     font-size: 2rem;
+    text-transform: none;
     color: #fff;
-    margin-right: 3rem;
+    margin-right: 4rem;
   }
 `
 
+const BlurCommonStyle = `
+  color: rgba(255, 255, 255, .7);
+    font-size: 0.875rem;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, .125);
+`
+
 export const Menu = styled.div`
-  display: flex;
-  width: auto;
-  align-items: center;
   border-radius: 8px;
   backdrop-filter: blur(8px);
   margin-right: 2rem;
 
   a {
     display: inline-block;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, .7);
-    font-size: 0.875rem;
-    padding: 10px 18px;
-    background: rgba(255, 255, 255, .125);
-    transition: color .2s ease;
+    //color: rgba(255, 255, 255, .7);
+    //font-size: 0.875rem;
+    //padding: 10px 18px;
+    //background: rgba(255, 255, 255, .125);
+    ${ BlurCommonStyle };
+    transition: color .25s ease;
 
     &:hover {
       color: #fff;
@@ -88,20 +86,19 @@ export const WatchList = styled.div`
   align-items: center;
   justify-content: center;
   padding: 10px 18px;
-  text-transform: uppercase;
   margin-right: 2rem;
   border-radius: 8px;
   font-size: 0.875rem;
   color: rgba(255, 255, 255, .7);
   background: rgba(255, 255, 255, .125);
   backdrop-filter: blur(8px);
-  transition: color .2s ease;
+  transition: color .25s ease;
 
   svg {
     margin-left: 2px;
     font-size: 0.875rem;
     fill: rgba(255, 255, 255, .7);
-    transition: fill .2s ease;
+    transition: fill .25s ease;
   }
 
   &:hover {
