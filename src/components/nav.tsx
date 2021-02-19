@@ -5,7 +5,7 @@ import { Logo, Menu, NavContainer, NavWrapper, Search, WatchList } from '../styl
 import { Flex } from '../styles/global'
 import { Avatar, AvatarContent } from '../styles/common'
 // icons
-import { RiSearchLine } from 'react-icons/ri'
+import { RiArrowRightSLine, RiSearchLine } from 'react-icons/ri'
 
 const links = [
   { name: 'series', path: '/series' },
@@ -29,15 +29,20 @@ const Nav: React.FC = () => {
             <Link to='/'>universe.</Link>
           </Logo>
           <Menu>
-            { links.map(link => <Link to={ link.path }>{ link.name }</Link>) }
+            { links.map(link => <Link to={ link.path } key={ link.name }>{ link.name }</Link>) }
           </Menu>
-          <Search whileHover={ { width: 320, cursor: 'pointer' } }
-                  transition={ { duration: .3, ease: [ .6, .05, -.01, .9 ] } }>
+          <Search
+            whileHover={ { width: 320, cursor: 'pointer' } }
+            transition={ { duration: .3, ease: [ .6, .05, -.01, .9 ] } }
+          >
             <RiSearchLine />
           </Search>
         </Flex>
         <Flex>
-          <WatchList>watch list</WatchList>
+          <WatchList>
+            watch list
+            <RiArrowRightSLine />
+          </WatchList>
           <Avatar>
             <AvatarContent>
               <img src="https://vuesax.com/avatars/avatar-1.png" alt="" />

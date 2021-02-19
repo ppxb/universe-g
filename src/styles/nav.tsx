@@ -84,6 +84,9 @@ export const Search = styled(motion.div)`
 `
 
 export const WatchList = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 18px;
   text-transform: uppercase;
   margin-right: 2rem;
@@ -94,8 +97,19 @@ export const WatchList = styled.div`
   backdrop-filter: blur(8px);
   transition: color .2s ease;
 
+  svg {
+    margin-left: 2px;
+    font-size: 0.875rem;
+    fill: rgba(255, 255, 255, .7);
+    transition: fill .2s ease;
+  }
+
   &:hover {
     cursor: pointer;
     color: #fff;
+  }
+
+  &:hover svg {
+    fill: #fff;
   }
 `
