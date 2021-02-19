@@ -27,6 +27,19 @@ export const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
   }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #222;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #333;
+  }
 `
 
 export const Flex = styled.div<FlexProps>`

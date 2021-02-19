@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HomePage: React.FC<{}> = () => (
+const SeriesPage: React.FC<{}> = () => (
   <main>
     <p>A TypeScript starter for Gatsby. Great for advanced users.</p>
     <p>
@@ -10,4 +10,4 @@ const HomePage: React.FC<{}> = () => (
   </main>
 )
 
-export default HomePage
+export default SeriesPage
