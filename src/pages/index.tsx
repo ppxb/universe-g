@@ -1,12 +1,19 @@
 import React, { useState } from 'react'
 import { PageProps } from 'gatsby'
 import { AnimatePresence } from 'framer-motion'
+// icons
+import { RiGooglePlayLine } from 'react-icons/ri'
 // styled components
 import Layout from '../components/layout'
 import {
   IndexBanner,
   IndexContainer,
   IndexRecommend,
+  IndexRecommendDetail,
+  IndexRecommendDetailAlias,
+  IndexRecommendDetailInfo,
+  IndexRecommendDetailName,
+  IndexRecommendDetailWatch,
   IndexRecommendItem,
   IndexRecommendList
 } from '../styles/pages'
@@ -14,6 +21,8 @@ import {
 interface IRecommendItem {
   id: number
   name: string
+  year: number
+  location: string
   alias: string
   desc: string
   cover: string
@@ -24,8 +33,7 @@ interface IRecommendItem {
 const fadeInUp = {
   initial: {
     y: 60,
-    opacity: 0,
-    scale: 1
+    opacity: 0
   },
   animate: {
     y: 0,
@@ -48,6 +56,8 @@ const stagger = {
 const IndexPage: React.FC<PageProps> = () => {
   const [ currentRecommend, setCurrentRecommend ] = useState<IRecommendItem>({
     id: 0,
+    year: 2021,
+    location: 'japanese',
     name: '进击的巨人 最终季',
     alias: '進撃の巨人 The Final Season',
     desc: '曾几何时，世界上突然出现无数身形庞大的巨人，普通人类的生命受到前所未有的威胁。为了保护自身安全，最后的人类筑起三座高墙：玛莉亚、露丝和希娜。人类迎来了长达一个世纪的和平岁月，却也让自己成为圈养在笼中的鸟儿，屈辱地失去自由。845年，高达60米的超大型巨人和铠之巨人登场， 摧毁了最外层的玛莉亚之壁，也惊醒了人类似乎永远不会苏醒的长梦。',
@@ -60,9 +70,11 @@ const IndexPage: React.FC<PageProps> = () => {
     setCurrentRecommend(item)
   }
 
-  const list = [
+  const list: IRecommendItem[] = [
     {
       id: 0,
+      year: 2021,
+      location: 'japanese',
       name: '进击的巨人 最终季',
       alias: '進撃の巨人 The Final Season',
       desc: '曾几何时，世界上突然出现无数身形庞大的巨人，普通人类的生命受到前所未有的威胁。为了保护自身安全，最后的人类筑起三座高墙：玛莉亚、露丝和希娜。人类迎来了长达一个世纪的和平岁月，却也让自己成为圈养在笼中的鸟儿，屈辱地失去自由。845年，高达60米的超大型巨人和铠之巨人登场， 摧毁了最外层的玛莉亚之壁，也惊醒了人类似乎永远不会苏醒的长梦。',
@@ -71,6 +83,8 @@ const IndexPage: React.FC<PageProps> = () => {
       path: '/series/jinjidejuren'
     }, {
       id: 1,
+      year: 2020,
+      location: 'japanese',
       name: '鬼灭之刃',
       alias: '鬼滅の刃',
       desc: '日本大正时期，那是一个吃人的恶鬼横行的世界，一名家人被鬼杀死，妹妹也变成了鬼的主人公炭治郎，在猎鬼人的指引下，成为了鬼猎人组织“鬼杀队”的一员，为了让妹妹祢豆子变回人类，为了讨伐杀害家人的恶鬼，为了斩断悲伤的连锁而展开了战斗。',
@@ -79,7 +93,9 @@ const IndexPage: React.FC<PageProps> = () => {
       path: '/series/jinjidejuren'
     }, {
       id: 2,
-      name: '某科学的超电磁炮T',
+      year: 2021,
+      location: 'japanese',
+      name: '某科学的超电磁炮 T',
       alias: 'とある科学の超電磁砲T',
       desc: '有 230 万人口，其中八成人口为学生的「学园都市」，是比其他地区科技更为先进，并从事「超能力开发」的特殊地区。而整座学园都市中仅有七人的等级 5 超能力者之一御坂美琴，由于她的能力与个性使然，因而被卷入了学园都市中所发生的种种事件......',
       cover: 'https://cs1.anime.dmkt-sp.jp/anime_kv/img/23/15/0/23150_1_d2.jpg?1575955853000',
@@ -87,6 +103,8 @@ const IndexPage: React.FC<PageProps> = () => {
       path: '/series/jinjidejuren'
     }, {
       id: 3,
+      year: 2020,
+      location: 'japanese',
       name: 'Re：从零开始的异世界生活 第二季',
       alias: 'Re:ゼロから始める異世界生活 2nd season',
       desc: '曾几何时，世界上突然出现无数身形庞大的巨人，普通人类的生命受到前所未有的威胁。为了保护自身安全，最后的人类筑起三座高墙：玛莉亚、露丝和希娜。人类迎来了长达一个世纪的和平岁月，却也让自己成为圈养在笼中的鸟儿，屈辱地失去自由。845年，高达60米的超大型巨人和铠之巨人登场， 摧毁了最外层的玛莉亚之壁，也惊醒了人类似乎永远不会苏醒的长梦。',
@@ -95,6 +113,8 @@ const IndexPage: React.FC<PageProps> = () => {
       path: '/series/jinjidejuren'
     }, {
       id: 4,
+      year: 2020,
+      location: 'japanese',
       name: '异度侵入',
       alias: 'イド：インヴェイデッド ID:INVADED',
       desc: '曾几何时，世界上突然出现无数身形庞大的巨人，普通人类的生命受到前所未有的威胁。为了保护自身安全，最后的人类筑起三座高墙：玛莉亚、露丝和希娜。人类迎来了长达一个世纪的和平岁月，却也让自己成为圈养在笼中的鸟儿，屈辱地失去自由。845年，高达60米的超大型巨人和铠之巨人登场， 摧毁了最外层的玛莉亚之壁，也惊醒了人类似乎永远不会苏醒的长梦。',
@@ -103,6 +123,8 @@ const IndexPage: React.FC<PageProps> = () => {
       path: '/series/jinjidejuren'
     }, {
       id: 5,
+      year: 2020,
+      location: 'japanese',
       name: '排球少年 第四季',
       alias: 'ハイキュー!! TO THE TOP ',
       desc: '曾几何时，世界上突然出现无数身形庞大的巨人，普通人类的生命受到前所未有的威胁。为了保护自身安全，最后的人类筑起三座高墙：玛莉亚、露丝和希娜。人类迎来了长达一个世纪的和平岁月，却也让自己成为圈养在笼中的鸟儿，屈辱地失去自由。845年，高达60米的超大型巨人和铠之巨人登场， 摧毁了最外层的玛莉亚之壁，也惊醒了人类似乎永远不会苏醒的长梦。',
@@ -111,6 +133,8 @@ const IndexPage: React.FC<PageProps> = () => {
       path: '/series/jinjidejuren'
     }, {
       id: 6,
+      year: 2019,
+      location: 'japanese',
       name: '我的青春恋爱物语果然有问题 第三季 完',
       alias: 'やはり俺の青春ラブコメはまちがっている。完',
       desc: '曾几何时，世界上突然出现无数身形庞大的巨人，普通人类的生命受到前所未有的威胁。为了保护自身安全，最后的人类筑起三座高墙：玛莉亚、露丝和希娜。人类迎来了长达一个世纪的和平岁月，却也让自己成为圈养在笼中的鸟儿，屈辱地失去自由。845年，高达60米的超大型巨人和铠之巨人登场， 摧毁了最外层的玛莉亚之壁，也惊醒了人类似乎永远不会苏醒的长梦。',
@@ -137,6 +161,22 @@ const IndexPage: React.FC<PageProps> = () => {
           </IndexBanner>
         </AnimatePresence>
         <IndexRecommend>
+          <IndexRecommendDetail
+            variants={ stagger }
+            key={ currentRecommend.id }
+          >
+            <IndexRecommendDetailInfo
+              variants={ fadeInUp }>{ currentRecommend.location } · { currentRecommend.year } ·
+              series</IndexRecommendDetailInfo>
+            <IndexRecommendDetailAlias
+              variants={ fadeInUp }>{ currentRecommend.alias }</IndexRecommendDetailAlias>
+            <IndexRecommendDetailName
+              variants={ fadeInUp }>{ currentRecommend.name }</IndexRecommendDetailName>
+            <IndexRecommendDetailWatch variants={ fadeInUp }>
+              <RiGooglePlayLine />
+              watch now
+            </IndexRecommendDetailWatch>
+          </IndexRecommendDetail>
           <IndexRecommendList variants={ stagger }>
             {
               list.map(item =>

@@ -46,7 +46,7 @@ export const Menu = styled.div`
     //color: rgba(255, 255, 255, .7);
     //font-size: 0.875rem;
     //padding: 10px 18px;
-    //background: rgba(255, 255, 255, .125);
+    //background: rgba(255, 255, 255, .2);
     ${ BlurCommonStyle };
     transition: color .25s ease;
 

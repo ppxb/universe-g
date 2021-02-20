@@ -29,6 +29,7 @@ export const IndexBanner = styled(motion.div)<IndexBannerProps>`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
 
   &::before {
     position: absolute;
@@ -52,6 +53,60 @@ export const IndexRecommend = styled.div`
   height: 100vh;
   padding: 0 72px 32px 72px;
   z-index: 1;
+  position: relative;
+`
+
+export const IndexRecommendDetail = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  margin-top: 260px;
+`
+
+export const IndexRecommendDetailInfo = styled(motion.div)`
+  color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, .2);
+  width: fit-content;
+  padding: 8px;
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+  font-size: 1rem;
+  margin-bottom: 12px;
+`
+
+export const IndexRecommendDetailAlias = styled(motion.div)`
+  color: rgba(255, 255, 255, .9);
+  font-size: 2rem;
+  margin-bottom: 8px;
+`
+
+export const IndexRecommendDetailName = styled(motion.div)`
+  color: #fff;
+  width: 800px;
+  word-break: break-word;
+  font-size: 4rem;
+`
+
+export const IndexRecommendDetailWatch = styled(motion.div)`
+  position: absolute;
+  bottom: 300px;
+  padding: 12px 20px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, .7);
+  background: rgba(255, 255, 255, .2);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  transition: color .25s ease;
+
+  &:hover {
+    cursor: pointer;
+    color: #fff;
+  }
+
+  svg {
+    margin-right: 8px;
+  }
 `
 
 export const IndexRecommendList = styled(motion.div)`
@@ -69,6 +124,10 @@ export const IndexRecommendItem = styled(motion.div)<IndexRecommendItemProps>`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+
+  &:first-child, &:last-child {
+    margin: 0;
+  }
 
   ${ props => props.thumb && css`
     background-image: url("${ props.thumb }");
