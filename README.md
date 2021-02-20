@@ -19,7 +19,7 @@
 
 ## 🔍 Screenshot
 
-![image](https://img.yasuotu.com/uploads/2021/02/20/6030d0262b2f2_6030d02664eba.gif)
+<img src="https://img.yasuotu.com/uploads/2021/02/20/6030d0262b2f2_6030d02664eba.gif"/>
 
 ## 🚀 Quick start
 
