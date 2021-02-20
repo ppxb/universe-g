@@ -11,7 +11,7 @@ export const NavWrapper = styled(motion.div)`
   z-index: 999;
 `
 
-export const NavContainer = styled.div`
+export const NavContainer = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;

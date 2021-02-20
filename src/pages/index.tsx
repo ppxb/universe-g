@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { PageProps } from 'gatsby'
 import { AnimatePresence } from 'framer-motion'
 // icons
-import { RiAddFill, RiGooglePlayLine } from 'react-icons/ri'
+import { RiAddLine, RiGooglePlayLine } from 'react-icons/ri'
 // styled components
 import Layout from '../components/layout'
 import {
@@ -179,7 +179,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 watch now
               </IndexRecommendDetailButton>
               <IndexRecommendDetailButton buttonType='outlined'>
-                <RiAddFill />
+                <RiAddLine />
                 watch list
               </IndexRecommendDetailButton>
             </IndexRecommendDetailButtons>
