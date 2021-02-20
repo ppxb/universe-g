@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { PageProps } from 'gatsby'
 import { AnimatePresence } from 'framer-motion'
 // icons
-import { RiGooglePlayLine } from 'react-icons/ri'
+import { RiAddFill, RiGooglePlayLine } from 'react-icons/ri'
 // styled components
 import Layout from '../components/layout'
 import {
@@ -11,9 +11,10 @@ import {
   IndexRecommend,
   IndexRecommendDetail,
   IndexRecommendDetailAlias,
+  IndexRecommendDetailButton,
+  IndexRecommendDetailButtons,
   IndexRecommendDetailInfo,
   IndexRecommendDetailName,
-  IndexRecommendDetailWatch,
   IndexRecommendItem,
   IndexRecommendList
 } from '../styles/pages'
@@ -172,10 +173,16 @@ const IndexPage: React.FC<PageProps> = () => {
               variants={ fadeInUp }>{ currentRecommend.alias }</IndexRecommendDetailAlias>
             <IndexRecommendDetailName
               variants={ fadeInUp }>{ currentRecommend.name }</IndexRecommendDetailName>
-            <IndexRecommendDetailWatch variants={ fadeInUp }>
-              <RiGooglePlayLine />
-              watch now
-            </IndexRecommendDetailWatch>
+            <IndexRecommendDetailButtons variants={ fadeInUp }>
+              <IndexRecommendDetailButton buttonType='solid'>
+                <RiGooglePlayLine />
+                watch now
+              </IndexRecommendDetailButton>
+              <IndexRecommendDetailButton buttonType='outlined'>
+                <RiAddFill />
+                watch list
+              </IndexRecommendDetailButton>
+            </IndexRecommendDetailButtons>
           </IndexRecommendDetail>
           <IndexRecommendList variants={ stagger }>
             {

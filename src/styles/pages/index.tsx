@@ -10,6 +10,10 @@ interface IndexRecommendItemProps {
   thumb: string
 }
 
+interface ButtonProps {
+  buttonType?: 'solid' | 'outlined'
+}
+
 export const IndexContainer = styled(motion.div)`
   width: 100%;
   display: flex;
@@ -86,22 +90,32 @@ export const IndexRecommendDetailName = styled(motion.div)`
   font-size: 4rem;
 `
 
-export const IndexRecommendDetailWatch = styled(motion.div)`
+export const IndexRecommendDetailButtons = styled(motion.div)`
+  display: flex;
   position: absolute;
   bottom: 300px;
+`
+
+export const IndexRecommendDetailButton = styled(motion.div)<ButtonProps>`
   padding: 12px 20px;
   font-size: 1.5rem;
+  margin-right: 16px;
   display: flex;
   align-items: center;
-  color: rgba(255, 255, 255, .7);
-  background: rgba(255, 255, 255, .2);
-  backdrop-filter: blur(8px);
   border-radius: 8px;
   transition: color .25s ease;
 
+  ${ props => props.buttonType === 'solid' && css`
+    background: #fff;
+    color: #222;
+  ` }
+  ${ props => props.buttonType === 'outlined' && css`
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .7);
+    color: #fff;
+  ` }
   &:hover {
     cursor: pointer;
-    color: #fff;
   }
 
   svg {
@@ -125,11 +139,11 @@ export const IndexRecommendItem = styled(motion.div)<IndexRecommendItemProps>`
   background-repeat: no-repeat;
   background-position: center;
 
-  &:first-child{
+  &:first-child {
     margin-left: 0;
   }
-  
-  &:last-child{
+
+  &:last-child {
     margin-right: 0;
   }
 
