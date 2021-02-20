@@ -73,7 +73,6 @@ export const IndexRecommendDetailInfo = styled(motion.div)`
   padding: 8px;
   border-radius: 8px;
   backdrop-filter: blur(8px);
-  font-size: 1rem;
   margin-bottom: 12px;
 `
 
@@ -86,14 +85,37 @@ export const IndexRecommendDetailAlias = styled(motion.div)`
 export const IndexRecommendDetailName = styled(motion.div)`
   color: #fff;
   width: 800px;
+  font-weight: 700;
   word-break: break-word;
   font-size: 4rem;
+  margin-bottom: 20px;
+`
+
+export const IndexRecommendDetailRate = styled(motion.div)`
+  display: flex;
+`
+
+export const IndexRecommendDetailRateLabel = styled.div`
+  padding: 4px;
+  border-radius: 4px 0 0 4px;
+  font-weight: 700;
+  background: #F5C518;
+  text-transform: none;
+`
+
+export const IndexRecommendDetailRateScore = styled.div`
+  color: rgba(255, 255, 255, .7);
+  background-color: rgba(255, 255, 255, .2);
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 0 4px 4px 0;
+  backdrop-filter: blur(8px);
 `
 
 export const IndexRecommendDetailButtons = styled(motion.div)`
   display: flex;
   position: absolute;
-  bottom: 300px;
+  bottom: 260px;
 `
 
 export const IndexRecommendDetailButton = styled(motion.div)<ButtonProps>`

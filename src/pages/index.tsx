@@ -15,12 +15,16 @@ import {
   IndexRecommendDetailButtons,
   IndexRecommendDetailInfo,
   IndexRecommendDetailName,
+  IndexRecommendDetailRate,
+  IndexRecommendDetailRateLabel,
+  IndexRecommendDetailRateScore,
   IndexRecommendItem,
   IndexRecommendList
 } from '../styles/pages'
 
 interface IRecommendItem {
   id: number
+  rate: string
   name: string
   year: number
   location: string
@@ -57,6 +61,7 @@ const stagger = {
 const IndexPage: React.FC<PageProps> = () => {
   const [ currentRecommend, setCurrentRecommend ] = useState<IRecommendItem>({
     id: 0,
+    rate: '9.4',
     year: 2021,
     location: 'japanese',
     name: '进击的巨人 最终季',
@@ -74,6 +79,7 @@ const IndexPage: React.FC<PageProps> = () => {
   const list: IRecommendItem[] = [
     {
       id: 0,
+      rate: '9.4',
       year: 2021,
       location: 'japanese',
       name: '进击的巨人 最终季',
@@ -84,6 +90,7 @@ const IndexPage: React.FC<PageProps> = () => {
       path: '/series/jinjidejuren'
     }, {
       id: 1,
+      rate: '8.7',
       year: 2020,
       location: 'japanese',
       name: '鬼灭之刃',
@@ -94,6 +101,7 @@ const IndexPage: React.FC<PageProps> = () => {
       path: '/series/jinjidejuren'
     }, {
       id: 2,
+      rate: '9.2',
       year: 2021,
       location: 'japanese',
       name: '某科学的超电磁炮 T',
@@ -104,6 +112,7 @@ const IndexPage: React.FC<PageProps> = () => {
       path: '/series/jinjidejuren'
     }, {
       id: 3,
+      rate: '8.3',
       year: 2020,
       location: 'japanese',
       name: 'Re：从零开始的异世界生活 第二季',
@@ -115,6 +124,7 @@ const IndexPage: React.FC<PageProps> = () => {
     }, {
       id: 4,
       year: 2020,
+      rate:' 7.6',
       location: 'japanese',
       name: '异度侵入',
       alias: 'イド：インヴェイデッド ID:INVADED',
@@ -124,6 +134,7 @@ const IndexPage: React.FC<PageProps> = () => {
       path: '/series/jinjidejuren'
     }, {
       id: 5,
+      rate: '8.6',
       year: 2020,
       location: 'japanese',
       name: '排球少年 第四季',
@@ -135,6 +146,7 @@ const IndexPage: React.FC<PageProps> = () => {
     }, {
       id: 6,
       year: 2019,
+      rate: '9.0',
       location: 'japanese',
       name: '我的青春恋爱物语果然有问题 第三季 完',
       alias: 'やはり俺の青春ラブコメはまちがっている。完',
@@ -173,6 +185,10 @@ const IndexPage: React.FC<PageProps> = () => {
               variants={ fadeInUp }>{ currentRecommend.alias }</IndexRecommendDetailAlias>
             <IndexRecommendDetailName
               variants={ fadeInUp }>{ currentRecommend.name }</IndexRecommendDetailName>
+            <IndexRecommendDetailRate variants={ fadeInUp }>
+              <IndexRecommendDetailRateLabel>IMDb</IndexRecommendDetailRateLabel>
+              <IndexRecommendDetailRateScore>{ currentRecommend.rate }</IndexRecommendDetailRateScore>
+            </IndexRecommendDetailRate>
             <IndexRecommendDetailButtons variants={ fadeInUp }>
               <IndexRecommendDetailButton buttonType='solid'>
                 <RiGooglePlayLine />
