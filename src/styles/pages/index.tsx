@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
 
 interface IndexBannerProps {
-  backgroundCover: string
+  cover: string
 }
 
 interface IndexRecommendItemProps {
@@ -40,8 +40,8 @@ export const IndexBanner = styled(motion.div)<IndexBannerProps>`
     background: linear-gradient(rgba(0, 0, 0, .2) 20%, rgba(0, 0, 0, .45) 70%, rgba(0, 0, 0, .7) 90%, #111111);
   }
 
-  ${ props => props.backgroundCover && css`
-    background-image: url("${ props.backgroundCover }");
+  ${ props => props.cover && css`
+    background-image: url("${ props.cover }");
   ` }
 `
 
@@ -62,8 +62,10 @@ export const IndexRecommendList = styled(motion.div)`
 `
 
 export const IndexRecommendItem = styled(motion.div)<IndexRecommendItemProps>`
-  width: 240px;
+  //width: 240px;
+  flex: 1;
   height: 135px;
+  margin: 0 8px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

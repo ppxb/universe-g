@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { PageProps } from 'gatsby'
+import { AnimatePresence } from 'framer-motion'
 // styled components
 import Layout from '../components/layout'
 import {
@@ -9,7 +10,6 @@ import {
   IndexRecommendItem,
   IndexRecommendList
 } from '../styles/pages'
-import { AnimatePresence } from 'framer-motion'
 
 interface IRecommendItem {
   id: number
@@ -24,7 +24,8 @@ interface IRecommendItem {
 const fadeInUp = {
   initial: {
     y: 60,
-    opacity: 0
+    opacity: 0,
+    scale: 1
   },
   animate: {
     y: 0,
@@ -123,15 +124,16 @@ const IndexPage: React.FC<PageProps> = () => {
       <IndexContainer initial="initial" animate="animate">
         <AnimatePresence exitBeforeEnter>
           <IndexBanner
-            backgroundCover={ currentRecommend.cover }
+            cover={ currentRecommend.cover }
             initial={ { opacity: 0 } }
-            exit={ { opacity: 0 } }
             animate={ { opacity: 1 } }
-            key={ currentRecommend.id }
+            exit={ { opacity: 0 } }
             transition={ {
               duration: .1,
               ease: 'easeInOut'
-            } }>
+            } }
+            key={ currentRecommend.id }
+          >
           </IndexBanner>
         </AnimatePresence>
         <IndexRecommend>
@@ -142,7 +144,10 @@ const IndexPage: React.FC<PageProps> = () => {
                   variants={ fadeInUp }
                   key={ item.id }
                   thumb={ item.thumb }
-                  whileHover={ { cursor: 'pointer' } }
+                  whileHover={ {
+                    cursor: 'pointer',
+                    scale: 1.1
+                  } }
                   onHoverStart={ () => handleHoverItem(item) }
                 />
               )
