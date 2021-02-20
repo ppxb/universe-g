@@ -5,9 +5,11 @@ import Layout from '../components/layout'
 import {
   IndexBanner,
   IndexContainer,
+  IndexRecommend,
   IndexRecommendItem,
   IndexRecommendList
 } from '../styles/pages'
+import { AnimatePresence } from 'framer-motion'
 
 interface IRecommendItem {
   id: number
@@ -17,6 +19,29 @@ interface IRecommendItem {
   cover: string
   thumb: string
   path: string
+}
+
+const fadeInUp = {
+  initial: {
+    y: 60,
+    opacity: 0
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: [ .6, -.05, .01, .9 ]
+    }
+  }
+}
+
+const stagger = {
+  animate: {
+    transition: {
+      staggerChildren: .1
+    }
+  }
 }
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -95,12 +120,26 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <Layout>
-      <IndexContainer>
-        <IndexBanner backgroundCover={ currentRecommend.cover }>
-          <IndexRecommendList>
+      <IndexContainer initial="initial" animate="animate">
+        <AnimatePresence exitBeforeEnter>
+          <IndexBanner
+            backgroundCover={ currentRecommend.cover }
+            initial={ { opacity: 0 } }
+            exit={ { opacity: 0 } }
+            animate={ { opacity: 1 } }
+            key={ currentRecommend.id }
+            transition={ {
+              duration: .1,
+              ease: 'easeInOut'
+            } }>
+          </IndexBanner>
+        </AnimatePresence>
+        <IndexRecommend>
+          <IndexRecommendList variants={ stagger }>
             {
               list.map(item =>
                 <IndexRecommendItem
+                  variants={ fadeInUp }
                   key={ item.id }
                   thumb={ item.thumb }
                   whileHover={ { cursor: 'pointer' } }
@@ -109,7 +148,7 @@ const IndexPage: React.FC<PageProps> = () => {
               )
             }
           </IndexRecommendList>
-        </IndexBanner>
+        </IndexRecommend>
       </IndexContainer>
     </Layout>
   )

@@ -33,7 +33,7 @@ const BlurCommonStyle = `
   color: rgba(255, 255, 255, .7);
     font-size: 0.875rem;
     padding: 10px 18px;
-    background: rgba(255, 255, 255, .125);
+    background: rgba(255, 255, 255, .2);
 `
 
 export const Menu = styled.div`
@@ -72,7 +72,7 @@ export const Search = styled(motion.div)`
   width: fit-content;
   padding: 8px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, .125);
+  background: rgba(255, 255, 255, .2);
   backdrop-filter: blur(8px);
 
   svg {
@@ -90,7 +90,7 @@ export const WatchList = styled.div`
   border-radius: 8px;
   font-size: 0.875rem;
   color: rgba(255, 255, 255, .7);
-  background: rgba(255, 255, 255, .125);
+  background: rgba(255, 255, 255, .2);
   backdrop-filter: blur(8px);
   transition: color .25s ease;
 
