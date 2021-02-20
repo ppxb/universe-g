@@ -125,8 +125,12 @@ export const IndexRecommendItem = styled(motion.div)<IndexRecommendItemProps>`
   background-repeat: no-repeat;
   background-position: center;
 
-  &:first-child, &:last-child {
-    margin: 0;
+  &:first-child{
+    margin-left: 0;
+  }
+  
+  &:last-child{
+    margin-right: 0;
   }
 
   ${ props => props.thumb && css`
