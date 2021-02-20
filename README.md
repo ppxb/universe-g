@@ -19,7 +19,11 @@
 
 ## 🔍 Screenshot
 
-<img src="https://img.yasuotu.com/uploads/2021/02/20/6030d0262b2f2_6030d02664eba.gif"/>
+[Click to view the gif](https://img.yasuotu.com/uploads/2021/02/20/6030d0262b2f2_6030d02664eba.gif)
+
+![screenshot1](https://github.com/ppxb/universe-g/blob/master/screenshot/screenshot-1.png)
+
+![screenshot2](https://github.com/ppxb/universe-g/blob/master/screenshot/screenshot-2.png)
 
 ## 🚀 Quick start
 
