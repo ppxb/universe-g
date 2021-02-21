@@ -17,13 +17,13 @@ const links = [
 const navInitial = {
   background: 'rgba(0,0,0,0)',
   height: 100,
-  padding: '0 72px'
+  top: 0
 }
 
 const navAnimate = {
   background: 'rgba(0,0,0,0.9)',
   height: 60,
-  padding: '0 36px'
+  top: 10
 }
 
 const transition = {

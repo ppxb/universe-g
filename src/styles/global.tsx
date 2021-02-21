@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle, css } from 'styled-components'
 import { normalize } from 'styled-normalize'
+import { motion } from 'framer-motion'
 
 interface FlexProps {
   spaceBetween?: boolean
@@ -40,6 +41,15 @@ export const GlobalStyles = createGlobalStyle`
   ::-webkit-scrollbar-track {
     background: #333;
   }
+`
+
+export const Page = styled(motion.div)`
+  width: 100%;
+  display: flex;
+  height: 200vh;
+  flex-direction: column;
+  background: #111;
+  position: relative;
 `
 
 export const Flex = styled.div<FlexProps>`

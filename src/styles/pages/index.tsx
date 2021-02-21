@@ -14,16 +14,7 @@ interface ButtonProps {
   buttonType?: 'solid' | 'outlined'
 }
 
-export const IndexContainer = styled(motion.div)`
-  width: 100%;
-  display: flex;
-  height: 200vh;
-  flex-direction: column;
-  background: #111;
-  position: relative;
-`
-
-export const IndexBanner = styled(motion.div)<IndexBannerProps>`
+export const BannerCover = styled(motion.div)<IndexBannerProps>`
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -50,7 +41,7 @@ export const IndexBanner = styled(motion.div)<IndexBannerProps>`
   ` }
 `
 
-export const IndexRecommend = styled.div`
+export const Banner = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -60,13 +51,13 @@ export const IndexRecommend = styled.div`
   position: relative;
 `
 
-export const IndexRecommendDetail = styled(motion.div)`
+export const BannerDesc = styled(motion.div)`
   display: flex;
   flex-direction: column;
   margin-top: 260px;
 `
 
-export const IndexRecommendDetailInfo = styled(motion.div)`
+export const BannerDescInfo = styled(motion.div)`
   color: rgba(255, 255, 255, .7);
   background-color: rgba(255, 255, 255, .2);
   width: fit-content;
@@ -76,13 +67,13 @@ export const IndexRecommendDetailInfo = styled(motion.div)`
   margin-bottom: 12px;
 `
 
-export const IndexRecommendDetailAlias = styled(motion.div)`
+export const BannerDescAlias = styled(motion.div)`
   color: rgba(255, 255, 255, .9);
   font-size: 2rem;
   margin-bottom: 8px;
 `
 
-export const IndexRecommendDetailName = styled(motion.div)`
+export const BannerDescName = styled(motion.div)`
   color: #fff;
   width: 800px;
   font-weight: 700;
@@ -91,11 +82,16 @@ export const IndexRecommendDetailName = styled(motion.div)`
   margin-bottom: 20px;
 `
 
-export const IndexRecommendDetailRate = styled(motion.div)`
+export const BannerDescOther = styled(motion.div)`
   display: flex;
 `
 
-export const IndexRecommendDetailRateLabel = styled.div`
+export const BannerDescOtherItem = styled(motion.div)`
+  display: flex;
+  margin-right: 12px;
+`
+
+export const BannerDescOtherItemLabel = styled.div`
   padding: 4px;
   border-radius: 4px 0 0 4px;
   font-weight: 700;
@@ -103,7 +99,7 @@ export const IndexRecommendDetailRateLabel = styled.div`
   text-transform: none;
 `
 
-export const IndexRecommendDetailRateScore = styled.div`
+export const BannerDescOtherItemText = styled.div`
   color: rgba(255, 255, 255, .7);
   background-color: rgba(255, 255, 255, .2);
   width: fit-content;
@@ -112,13 +108,13 @@ export const IndexRecommendDetailRateScore = styled.div`
   backdrop-filter: blur(8px);
 `
 
-export const IndexRecommendDetailButtons = styled(motion.div)`
+export const BannerDescButtons = styled(motion.div)`
   display: flex;
   position: absolute;
   bottom: 260px;
 `
 
-export const IndexRecommendDetailButton = styled(motion.div)<ButtonProps>`
+export const BannerDescButton = styled(motion.div)<ButtonProps>`
   padding: 12px 20px;
   font-size: 1.5rem;
   margin-right: 16px;
@@ -145,14 +141,14 @@ export const IndexRecommendDetailButton = styled(motion.div)<ButtonProps>`
   }
 `
 
-export const IndexRecommendList = styled(motion.div)`
+export const BannerList = styled(motion.div)`
   display: flex;
   margin-top: auto;
   justify-content: space-between;
   z-index: 1;
 `
 
-export const IndexRecommendItem = styled(motion.div)<IndexRecommendItemProps>`
+export const BannerListItem = styled(motion.div)<IndexRecommendItemProps>`
   //width: 240px;
   flex: 1;
   height: 135px;

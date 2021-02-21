@@ -6,21 +6,22 @@ import { RiAddLine, RiGooglePlayLine } from 'react-icons/ri'
 // styled components
 import Layout from '../components/layout'
 import {
-  IndexBanner,
-  IndexContainer,
-  IndexRecommend,
-  IndexRecommendDetail,
-  IndexRecommendDetailAlias,
-  IndexRecommendDetailButton,
-  IndexRecommendDetailButtons,
-  IndexRecommendDetailInfo,
-  IndexRecommendDetailName,
-  IndexRecommendDetailRate,
-  IndexRecommendDetailRateLabel,
-  IndexRecommendDetailRateScore,
-  IndexRecommendItem,
-  IndexRecommendList
+  Banner,
+  BannerCover,
+  BannerDesc,
+  BannerDescAlias,
+  BannerDescButton,
+  BannerDescButtons,
+  BannerDescInfo,
+  BannerDescName,
+  BannerDescOther,
+  BannerDescOtherItem,
+  BannerDescOtherItemLabel,
+  BannerDescOtherItemText,
+  BannerList,
+  BannerListItem
 } from '../styles/pages'
+import { Page } from '../styles/global'
 
 interface IRecommendItem {
   id: number
@@ -124,7 +125,7 @@ const IndexPage: React.FC<PageProps> = () => {
     }, {
       id: 4,
       year: 2020,
-      rate:' 7.6',
+      rate: ' 7.6',
       location: 'japanese',
       name: '异度侵入',
       alias: 'イド：インヴェイデッド ID:INVADED',
@@ -158,9 +159,9 @@ const IndexPage: React.FC<PageProps> = () => {
 
   return (
     <Layout>
-      <IndexContainer initial="initial" animate="animate">
+      <Page initial="initial" animate="animate">
         <AnimatePresence exitBeforeEnter>
-          <IndexBanner
+          <BannerCover
             cover={ currentRecommend.cover }
             initial={ { opacity: 0 } }
             animate={ { opacity: 1 } }
@@ -171,39 +172,43 @@ const IndexPage: React.FC<PageProps> = () => {
             } }
             key={ currentRecommend.id }
           >
-          </IndexBanner>
+          </BannerCover>
         </AnimatePresence>
-        <IndexRecommend>
-          <IndexRecommendDetail
+        <Banner>
+          <BannerDesc
             variants={ stagger }
             key={ currentRecommend.id }
           >
-            <IndexRecommendDetailInfo
-              variants={ fadeInUp }>{ currentRecommend.location } · { currentRecommend.year } ·
-              series</IndexRecommendDetailInfo>
-            <IndexRecommendDetailAlias
-              variants={ fadeInUp }>{ currentRecommend.alias }</IndexRecommendDetailAlias>
-            <IndexRecommendDetailName
-              variants={ fadeInUp }>{ currentRecommend.name }</IndexRecommendDetailName>
-            <IndexRecommendDetailRate variants={ fadeInUp }>
-              <IndexRecommendDetailRateLabel>IMDb</IndexRecommendDetailRateLabel>
-              <IndexRecommendDetailRateScore>{ currentRecommend.rate }</IndexRecommendDetailRateScore>
-            </IndexRecommendDetailRate>
-            <IndexRecommendDetailButtons variants={ fadeInUp }>
-              <IndexRecommendDetailButton buttonType='solid'>
+            <BannerDescInfo variants={ fadeInUp }>
+              { currentRecommend.location } / { currentRecommend.year } • series
+            </BannerDescInfo>
+            <BannerDescAlias variants={ fadeInUp }>{ currentRecommend.alias }</BannerDescAlias>
+            <BannerDescName variants={ fadeInUp }>{ currentRecommend.name }</BannerDescName>
+            <BannerDescOther variants={ fadeInUp }>
+              <BannerDescOtherItem>
+                <BannerDescOtherItemLabel>IMDb</BannerDescOtherItemLabel>
+                <BannerDescOtherItemText>{ currentRecommend.rate }</BannerDescOtherItemText>
+              </BannerDescOtherItem>
+              <BannerDescOtherItem>
+                <BannerDescOtherItemLabel>SEASON 4</BannerDescOtherItemLabel>
+                <BannerDescOtherItemText>24</BannerDescOtherItemText>
+              </BannerDescOtherItem>
+            </BannerDescOther>
+            <BannerDescButtons variants={ fadeInUp }>
+              <BannerDescButton buttonType='solid'>
                 <RiGooglePlayLine />
                 watch now
-              </IndexRecommendDetailButton>
-              <IndexRecommendDetailButton buttonType='outlined'>
+              </BannerDescButton>
+              <BannerDescButton buttonType='outlined'>
                 <RiAddLine />
                 watch list
-              </IndexRecommendDetailButton>
-            </IndexRecommendDetailButtons>
-          </IndexRecommendDetail>
-          <IndexRecommendList variants={ stagger }>
+              </BannerDescButton>
+            </BannerDescButtons>
+          </BannerDesc>
+          <BannerList variants={ stagger }>
             {
               list.map(item =>
-                <IndexRecommendItem
+                <BannerListItem
                   variants={ fadeInUp }
                   key={ item.id }
                   thumb={ item.thumb }
@@ -215,9 +220,9 @@ const IndexPage: React.FC<PageProps> = () => {
                 />
               )
             }
-          </IndexRecommendList>
-        </IndexRecommend>
-      </IndexContainer>
+          </BannerList>
+        </Banner>
+      </Page>
     </Layout>
   )
 }

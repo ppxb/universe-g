@@ -2,10 +2,10 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
 export const NavWrapper = styled(motion.div)`
-  width: 100%;
   position: fixed;
   height: 100px;
   background: transparent;
+  margin: 0 12px;
   right: 0;
   left: 0;
   z-index: 999;
@@ -17,7 +17,8 @@ export const NavContainer = styled(motion.div)`
   justify-content: space-between;
   height: 100%;
   position: relative;
-  padding: 0 72px;
+  border-radius: 12px;
+  padding: 0 60px;
 `
 
 export const Logo = styled.div`
