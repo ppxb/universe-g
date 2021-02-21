@@ -2,11 +2,11 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
 
-interface IndexBannerProps {
+interface BannerCoverProps {
   cover: string
 }
 
-interface IndexRecommendItemProps {
+interface BannerListItemProps {
   thumb: string
 }
 
@@ -14,7 +14,7 @@ interface ButtonProps {
   buttonType?: 'solid' | 'outlined'
 }
 
-export const BannerCover = styled(motion.div)<IndexBannerProps>`
+export const BannerCover = styled(motion.div)<BannerCoverProps>`
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -33,7 +33,7 @@ export const BannerCover = styled(motion.div)<IndexBannerProps>`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(rgba(0, 0, 0, .2) 20%, rgba(0, 0, 0, .45) 70%, rgba(0, 0, 0, .7) 90%, #111111);
+    background: linear-gradient(rgba(0, 0, 0, .25) 20%, rgba(0, 0, 0, .45) 70%, rgba(0, 0, 0, .7) 90%, #111111);
   }
 
   ${ props => props.cover && css`
@@ -148,7 +148,7 @@ export const BannerList = styled(motion.div)`
   z-index: 1;
 `
 
-export const BannerListItem = styled(motion.div)<IndexRecommendItemProps>`
+export const BannerListItem = styled(motion.div)<BannerListItemProps>`
   //width: 240px;
   flex: 1;
   height: 135px;
@@ -168,4 +168,16 @@ export const BannerListItem = styled(motion.div)<IndexRecommendItemProps>`
   ${ props => props.thumb && css`
     background-image: url("${ props.thumb }");
   ` }
+`
+
+export const Updated = styled.div`
+  padding: 0 72px;
+  display: flex;
+  margin-top: 60px;
+  flex-direction: column;
+`
+
+export const UpdatedTitle=styled.div`
+  font-size: 1.5rem;
+  color: #fff;
 `

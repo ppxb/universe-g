@@ -19,7 +19,9 @@ import {
   BannerDescOtherItemLabel,
   BannerDescOtherItemText,
   BannerList,
-  BannerListItem
+  BannerListItem,
+  Updated,
+  UpdatedTitle
 } from '../styles/pages'
 import { Page } from '../styles/global'
 
@@ -222,6 +224,9 @@ const IndexPage: React.FC<PageProps> = () => {
             }
           </BannerList>
         </Banner>
+        <Updated>
+          <UpdatedTitle>recently updated</UpdatedTitle>
+        </Updated>
       </Page>
     </Layout>
   )

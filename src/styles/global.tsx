@@ -1,10 +1,6 @@
-import styled, { createGlobalStyle, css } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { normalize } from 'styled-normalize'
 import { motion } from 'framer-motion'
-
-interface FlexProps {
-  spaceBetween?: boolean
-}
 
 export const GlobalStyles = createGlobalStyle`
   ${ normalize }
@@ -52,15 +48,11 @@ export const Page = styled(motion.div)`
   position: relative;
 `
 
-export const Flex = styled.div<FlexProps>`
+export const Flex = styled.div`
   position: relative;
   display: flex;
   align-items: center;
   height: 100%;
-
-  ${ props => props.spaceBetween && css`
-    justify-content: space-between;
-  ` }
 `
 
 export const darkTheme = {}
