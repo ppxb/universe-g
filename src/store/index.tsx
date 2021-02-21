@@ -9,12 +9,12 @@ interface IAction {
   payload: any
 }
 
-interface StoreProps {
+interface IStoreProps {
   state: IState
   dispatch: Dispatch<IAction>
 }
 
-const Store = createContext({} as StoreProps)
+const Store = createContext({} as IStoreProps)
 
 const initialState = {
   theme: window.localStorage.getItem('theme') || 'dark'

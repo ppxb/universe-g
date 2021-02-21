@@ -1,6 +1,12 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, css } from 'styled-components'
 import { normalize } from 'styled-normalize'
 import { motion } from 'framer-motion'
+
+interface IFlexProps {
+  spaceBetween?: boolean
+  mb?: number,
+  direction?: 'row' | 'column'
+}
 
 export const GlobalStyles = createGlobalStyle`
   ${ normalize }
@@ -48,11 +54,25 @@ export const Page = styled(motion.div)`
   position: relative;
 `
 
-export const Flex = styled.div`
+export const Flex = styled.div<IFlexProps>`
   position: relative;
   display: flex;
   align-items: center;
   height: 100%;
+
+  ${ props => props.spaceBetween && css`
+    justify-content: space-between;
+  ` }
+
+  ${ props => props.mb && css`
+    margin-bottom: ${ props.mb }px;
+  ` }
+
+  ${ props => props.direction === 'column' ? css`
+    flex-direction: column;
+  ` : css`
+    flex-direction: row;
+  ` }
 `
 
 export const darkTheme = {}

@@ -2,19 +2,19 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { motion } from 'framer-motion'
 
-interface BannerCoverProps {
+interface IBannerCoverProps {
   cover: string
 }
 
-interface BannerListItemProps {
+interface IBannerListItemProps {
   thumb: string
 }
 
-interface ButtonProps {
+interface IButtonProps {
   buttonType?: 'solid' | 'outlined'
 }
 
-export const BannerCover = styled(motion.div)<BannerCoverProps>`
+export const BannerCover = styled(motion.div)<IBannerCoverProps>`
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -114,7 +114,7 @@ export const BannerDescButtons = styled(motion.div)`
   bottom: 260px;
 `
 
-export const BannerDescButton = styled(motion.div)<ButtonProps>`
+export const BannerDescButton = styled(motion.div)<IButtonProps>`
   padding: 12px 20px;
   font-size: 1.5rem;
   margin-right: 16px;
@@ -148,7 +148,7 @@ export const BannerList = styled(motion.div)`
   z-index: 1;
 `
 
-export const BannerListItem = styled(motion.div)<BannerListItemProps>`
+export const BannerListItem = styled(motion.div)<IBannerListItemProps>`
   //width: 240px;
   flex: 1;
   height: 135px;
@@ -175,9 +175,45 @@ export const Updated = styled.div`
   display: flex;
   margin-top: 60px;
   flex-direction: column;
-`
-
-export const UpdatedTitle=styled.div`
   font-size: 1.5rem;
   color: #fff;
+`
+
+export const UpdatedMore = styled.div`
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  color: #fff;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  svg {
+    margin-left: 4px;
+  }
+`
+
+interface IUpdatedItemProps {
+  cover: string
+}
+
+export const UpdatedItem = styled.div<IUpdatedItemProps>`
+  flex: 1;
+  height: 340px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0 8px;
+
+  ${ props => props.cover && css`
+    background-image: url("${ props.cover }");
+  ` }
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
 `
